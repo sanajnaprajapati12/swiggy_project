@@ -29,7 +29,7 @@ import MenuItemsPage from "./Components/Menuitems/Menuitems";
 import OrdersTable from "./Components/AdminSidebar/OdersPage";
 import Checkout from "./Components/Menuitems/Cehckout";
 import RestaurantsCard from "./Components/Herosection/Card3";
-import UserDashboard from "./Components/UserDashboard/userDAshboard";
+import UserDashboard from "./Components/UserDashboard/userDashboard";
 import UserOrders from "./Components/UserDashboard/UserOrders";
 import UserDashboardHome from "./Components/UserDashboard/UserDashboardHome";
 import AddressPage from "./Components/UserDashboard/Addresspage";
