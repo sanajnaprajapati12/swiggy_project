@@ -1,0 +1,6 @@
+@layer utilities {
+  .container-normal {
+    container-type: inline-size;
+    container-name: food-card;
+  }
+}

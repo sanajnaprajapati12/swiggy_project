@@ -1,0 +1,80 @@
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+
+const ItemCard = () => {
+  const [open, setOpen] = useState(false);
+  const [selectedQty, setSelectedQty] = useState("250 gms");
+  const [price, setPrice] = useState(140);
+
+  const handleQuantityChange = (qty) => {
+    setSelectedQty(qty);
+    if (qty === "250 gms") setPrice(140);
+    if (qty === "500 gms") setPrice(250);
+  };
+
+  return (
+    <>
+      {/* Card */}
+      <Card className="w-64 shadow-lg rounded-2xl p-4">
+        <CardContent className="flex flex-col items-center text-center">
+          <h2 className="text-lg font-semibold">Makkhan Bada</h2>
+          <p className="text-gray-500">₹140</p>
+          <Button className="mt-3 w-full" onClick={() => setOpen(true)}>
+            Add
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Popup / Modal */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="rounded-2xl max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Makkhan Bada</DialogTitle>
+            <DialogDescription>
+              Customise as per your taste
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4">
+            {/* Quantity Options */}
+            <div>
+              <p className="font-medium">Quantity</p>
+              <div className="flex gap-3 mt-2">
+                <Button
+                  variant={selectedQty === "250 gms" ? "default" : "outline"}
+                  onClick={() => handleQuantityChange("250 gms")}
+                >
+                  250 gms
+                </Button>
+                <Button
+                  variant={selectedQty === "500 gms" ? "default" : "outline"}
+                  onClick={() => handleQuantityChange("500 gms")}
+                >
+                  500 gms
+                </Button>
+              </div>
+            </div>
+
+            {/* Price */}
+            <p className="text-lg font-semibold">₹{price}.00</p>
+
+            {/* Add to Cart Button */}
+            <Button className="w-full">
+              Add {selectedQty} - ₹{price}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
+
+export default ItemCard;
